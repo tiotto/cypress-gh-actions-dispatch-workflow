@@ -1,0 +1,15 @@
+name: 🧪 E2E - workflow b
+on:
+  repository_dispatch:
+    types: [workflow-b-tests]
+jobs:
+  b-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          spec: cypress/e2e/b-tests/*.cy.js
